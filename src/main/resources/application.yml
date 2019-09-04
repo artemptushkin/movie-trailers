@@ -12,4 +12,6 @@ logging:
   level:
     com.google.api.services.youtube: debug
     ru.example.movies.movietrailers.feign: debug
+    ru.example.movies.movietrailers.service.DefaultYoutubeService: debug
+    ru.example.movies.movietrailers.service.DefaultOmdbService: debug
     org.springframework.web.filter.CommonsRequestLoggingFilter: debug
