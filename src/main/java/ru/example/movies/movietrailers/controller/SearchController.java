@@ -49,8 +49,9 @@ public class SearchController {
 	@SneakyThrows
 	public TrailersSearchResponse searchTrailers(
 		@RequestParam String query,
-		@RequestParam(required = false, defaultValue = "1") Integer page) {
-		SearchResults searchResults = omdbService.searchMovies(query, page);
+		@RequestParam(required = false, defaultValue = "1") Integer page,
+		@RequestParam(required = false) Integer year) {
+		SearchResults searchResults = year == null ? omdbService.searchMovies(query, page) : omdbService.searchMovies(query, page, year);
 
 		return Optional.of(searchResults)
 			.filter(SearchResults::isResponse)

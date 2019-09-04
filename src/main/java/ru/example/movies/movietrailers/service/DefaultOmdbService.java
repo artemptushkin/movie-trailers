@@ -47,6 +47,11 @@ public class DefaultOmdbService implements OmdbService {
 		);
 	}
 
+	@Override
+	public SearchResults searchMovies(String query, Integer page, Integer year) {
+		return fetchSearchResults(query, page, year);
+	}
+
 	@PreDestroy
 	@CacheEvict(allEntries = true, value = "searchMovieByQueryCache")
 	@Scheduled(fixedDelay = 60000)
@@ -67,6 +72,16 @@ public class DefaultOmdbService implements OmdbService {
 			"movie",
 			query,
 			page
+		);
+	}
+
+	private SearchResults fetchSearchResults(String query, Integer page, Integer year) {
+		return omdbApi.searchByYear(
+			imdbProperties.getApi().getKey(),
+			"movie",
+			query,
+			page,
+			year
 		);
 	}
 }

@@ -14,7 +14,16 @@ public interface ImdbFeignClient {
 		@RequestParam String apikey,
 		@RequestParam String type,
 		@RequestParam(value = "s") String query,
-		@RequestParam Integer page
+		@RequestParam(required = false) Integer page
+	);
+
+	@GetMapping
+	SearchResults searchByYear(
+		@RequestParam String apikey,
+		@RequestParam String type,
+		@RequestParam(value = "s") String query,
+		@RequestParam(required = false) Integer page,
+		@RequestParam(value = "y", required = false) Integer year
 	);
 
 	@GetMapping
