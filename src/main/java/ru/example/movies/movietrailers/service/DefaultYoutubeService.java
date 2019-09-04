@@ -20,6 +20,8 @@ import static java.text.MessageFormat.format;
 @RequiredArgsConstructor
 public class DefaultYoutubeService implements YoutubeService {
 
+	private static final String SNIPPET = "snippet";
+
 	private final YouTube youTube;
 	private final YoutubeProperties youtubeProperties;
 
@@ -29,13 +31,13 @@ public class DefaultYoutubeService implements YoutubeService {
 		try {
 			log.debug("youtube search invoked");
 			return youTube.search()
-				.list("snippet")
+				.list(SNIPPET)
 				.setKey(youtubeProperties.getApi().getKey())
 				.setMaxResults(20L)
-				.setType("video")
-				.setOrder("relevance")
-				.setQ(format("{0} trailer", title))
-				.setFields("items(id(videoId),snippet(title, thumbnails(high)))")
+				.setType(youtubeProperties.getType())
+				.setOrder(youtubeProperties.getOrder())
+				.setQ(format(youtubeProperties.getSearchQueryMask(), title))
+				.setFields(youtubeProperties.getJsonQuery())
 				.execute()
 				.getItems()
 				.stream()

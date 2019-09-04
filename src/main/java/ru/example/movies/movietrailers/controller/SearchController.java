@@ -18,7 +18,7 @@ import static java.util.stream.Collectors.toList;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/movieTrailers")
+@RequestMapping("/movieTrailers")
 public class SearchController {
 	private final OmdbService omdbService;
 	private final TrailerService trailerService;

@@ -11,4 +11,12 @@ public class YoutubeProperties {
 	private FeignAPIProperties api;
 	@NotNull
 	private String urlMask;
+	@NotNull
+	private String searchQueryMask;
+	@NotNull
+	private String jsonQuery;
+	@NotNull
+	private String order;
+	@NotNull
+	private String type;
 }

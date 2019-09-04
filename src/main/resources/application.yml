@@ -1,13 +1,18 @@
 youtube:
   api:
     key: AIzaSyDz__Y8sq1O2DOAbEwi-4Eu2jZn6AHIaKE
+  #mask for result youtube video url, 0 - imbd
   urlMask: https://www.youtube.com/watch?v={0}
+  #affects youtube search query, 0 - query param input query
+  searchQueryMask: "{0} trailer"
+  jsonQuery: "items(id(videoId),snippet(title, thumbnails(high)))"
+  order: relevance
+  type: video
 imdb:
   searchPageSize: 10
   api:
     key: 8caf7872
     url: http://www.omdbapi.com
-
 logging:
   level:
     com.google.api.services.youtube: debug
