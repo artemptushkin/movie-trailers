@@ -1,0 +1,15 @@
+youtube:
+  api:
+    key: AIzaSyDz__Y8sq1O2DOAbEwi-4Eu2jZn6AHIaKE
+  urlMask: https://www.youtube.com/watch?v={0}
+imdb:
+  searchPageSize: 10
+  api:
+    key: 8caf7872
+    url: http://www.omdbapi.com
+
+logging:
+  level:
+    com.google.api.services.youtube: debug
+    ru.example.movies.movietrailers.feign: debug
+    org.springframework.web.filter.CommonsRequestLoggingFilter: debug
