@@ -20,3 +20,10 @@ logging:
     ru.example.movies.movietrailers.service.DefaultYoutubeService: debug
     ru.example.movies.movietrailers.service.DefaultOmdbService: debug
     org.springframework.web.filter.CommonsRequestLoggingFilter: debug
+
+some:
+  composite: ${i.am.composite}
+
+i.am.composite:
+  name: Artem
+  type: Cat
